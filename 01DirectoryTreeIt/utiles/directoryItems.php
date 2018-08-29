@@ -2,9 +2,8 @@
 
 defined('ROOT') or define('ROOT', __DIR__);
 
-// $path = ROOT . '/../../';
-$pathInfo = $_SERVER['PATH_INFO'];
-$directoryIt = new DirectoryIterator($pathInfo);
+$path = $_SERVER['PATH_INFO'] ?: ROOT . '/../';
+$directoryIt = new DirectoryIterator($path);
 
 foreach ($directoryIt as $entry) {
     // Allow ./?hidden to show hidden files
